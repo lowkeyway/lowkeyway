@@ -20,6 +20,32 @@ svm.cpp/svm.h：svm算法的具体实现文件。
 svm-predict.c：svm模型的测试文件，调用svm.c文件中的测试接口。 
 svm-scale.c：实现对样本数据的归一经缩放。缩放的规则如这个公式： 
 
+# 编译
+## Windows
+
+Windows binaries are available in the directory `windows'. To re-build them via Visual C++, use the following steps:
+
+### 1. Open a DOS command box (or Visual Studio Command Prompt) and change to libsvm directory. If environment variables of VC++ have not been set, type
+```
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+```
+You may have to modify the above command according which version of
+VC++ or where it is installed.
+
+### 2. Type
+```
+nmake -f Makefile.win clean all
+```
+### 3. (optional) To build shared library libsvm.dll, type
+```
+nmake -f Makefile.win lib
+```
+### 4. (optional) To build 32-bit windows binaries, you must
+	+ (1) Setup "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars32.bat" instead of vcvars64.bat
+	+ (2) Change CFLAGS in Makefile.win: /D _WIN64 to /D _WIN32
+
+Another way is to build them from Visual C++ environment. See details in libsvm FAQ.
+
 
 
 # train-model文件
@@ -39,3 +65,4 @@ SV                //以下为各个类的权系数及相应的支持向量
 -1 1:-0.375 2:1 3:-0.333333…. 10:-1 11:-1 12:-1 13:1
 -1 1:0.166667 2:1 3:1 …. 10:-0.870968 12:-1 13:0.5
 ```
+
