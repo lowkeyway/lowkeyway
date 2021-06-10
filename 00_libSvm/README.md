@@ -102,7 +102,7 @@ Another way is to build them from Visual C++ environment. See details in libsvm 
 
 # svm-train
 
-我们可以通过执行svm-train.exe来看一看：
+svm-train主要实现对训练数据集的训练，并可以获得SVM模型，我们可以通过执行svm-train.exe来看一看用法：
 ```
 D:\louis\06_Code\04_Louis\SVM\libsvm-3.24\libsvm-3.24\windows>svm-train.exe
 Usage: svm-train [options] training_set_file [model_file]
@@ -133,3 +133,50 @@ options:
 -v n: n-fold cross validation mode
 -q : quiet mode (no outputs)
 ```
+
+用法： svm-train.exe [options] training_set_file [model_file]
+中文解释一下就是：
+```
+-s 设置svm类型：
+         0 – C-SVC
+         1 – v-SVC
+         2 – one-class-SVM
+         3 – ε-SVR
+         4 – n - SVR 
+
+-t 设置核函数类型，默认值为2
+         0 -- 线性核：u'*v
+         1 -- 多项式核： (g*u'*v+ coef 0)degree
+         2 -- RBF 核：exp(-γ*||u-v||2)
+         3 -- sigmoid 核：tanh(γ*u'*v+ coef 0) 
+
+-d degree: 设置多项式核中degree的值，默认为3
+-gγ: 设置核函数中γ的值，默认为1/k，k为特征（或者说是属性）数；
+-r coef 0:设置核函数中的coef 0，默认值为0；
+-c cost：设置C-SVC、ε-SVR、n - SVR中从惩罚系数C，默认值为1；
+-n v ：设置v-SVC、one-class-SVM 与n - SVR 中参数n ，默认值0.5；
+-p ε ：设置v-SVR的损失函数中的e ，默认值为0.1；
+-m cachesize：设置cache内存大小，以MB为单位，默认值为40；
+-e ε ：设置终止准则中的可容忍偏差，默认值为0.001；
+-h shrinking：是否使用启发式，可选值为0 或1，默认值为1；
+-b 概率估计：是否计算SVC或SVR的概率估计，可选值0 或1，默认0；
+-wi weight：对各类样本的惩罚系数C加权，默认值为1；
+-v n：n折交叉验证模式；
+
+model_file：可选项，为要保存的结果文件，称为模型文件，以便在预测时使用。
+```
+
+找个例子：
+```
+D:\louis\06_Code\04_Louis\SVM\libsvm-3.24\libsvm-3.24\windows>svm-train.exe heart_scale
+[LOUIS]read_problem, 284 - filename is [heart_scale]
+[LOUIS]read_problem, 312 - elements = 3648, prob.l = 270
+*
+optimization finished, #iter = 162
+nu = 0.431029
+obj = -100.877288, rho = 0.424462
+nSV = 132, nBSV = 107
+Total nSV = 132
+```
+
+运行后，我们可以在相同文件夹下生成train.mode文件。
