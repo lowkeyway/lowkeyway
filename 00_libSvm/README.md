@@ -298,3 +298,8 @@ SV
 
 ```
 
+# SVM类型 
+
+1. SVC: support vector classication (two-class and multi-class).
+2. SVR: support vector regression.
+3. One-class SVM.
