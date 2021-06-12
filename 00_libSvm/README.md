@@ -13,12 +13,12 @@ svm-toy文件夹：实现训练数据和分类界面可视化的工具的源码�
 windows文件夹：包含libSVM四个exe程序包，svmpredict.exe：svm-predict.c编译的可执行程序，实现SVM的预测。svmscale.exe：svm-scale.c编译的可执行程序，实现对数据的归一化缩放。svmtrain.exe：svm-train.c编译的可执行程序，调用SVM的数据训练接口。
 
 当前文件夹： 
-heart_scale：LibSvm自带的一个样本文件，可以用来测试和训练。 
-Makefile：linux环境下，目录下几个.c,.h文件的编译规则文件。 
-Makefile.win：windows环境下，目录下几个.c,.h文件的编译规则文件。 
-svm.cpp/svm.h：svm算法的具体实现文件。 
-svm-predict.c：svm模型的测试文件，调用svm.c文件中的测试接口。 
-svm-scale.c：实现对样本数据的归一经缩放。缩放的规则如这个公式： 
+heart_scale：LibSvm自带的一个样本文件，可以用来测试和训练。   
+Makefile：linux环境下，目录下几个.c,.h文件的编译规则文件。  
+Makefile.win：windows环境下，目录下几个.c,.h文件的编译规则文件。  
+svm.cpp/svm.h：svm算法的具体实现文件。  
+svm-predict.c：svm模型的测试文件，调用svm.c文件中的测试接口。  
+svm-scale.c：实现对样本数据的归一经缩放。缩放的规则如这个公式：  
 
 # heart_scale文件
 
