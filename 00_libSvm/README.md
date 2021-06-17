@@ -103,7 +103,8 @@ Another way is to build them from Visual C++ environment. See details in libsvm 
 
 svm-scale 是实现对数据进行缩放的。
 
-y^{\prime}=\text { lower }+(\text { upper }-\text { lower }) * \frac{y-m i n}{\max -\min }
+<img src="https://latex.codecogs.com/svg.image?y^{\prime}=\text&space;{&space;lower&space;}&plus;(\text&space;{&space;upper&space;}-\text&space;{&space;lower&space;})&space;*&space;\frac{y-m&space;i&space;n}{\max&space;-\min&space;}" title="y^{\prime}=\text { lower }+(\text { upper }-\text { lower }) * \frac{y-m i n}{\max -\min }" />
+
 
 式中，y 为缩放前的数据，y' 为缩放后的数据；lower 为参数中指定的数据下界，upper 为参数中指定的数据上界；min 为全部训练数据中的最小值，max 为全部训练数据中的最大值。
 
