@@ -236,7 +236,7 @@ options:
          3 -- sigmoid 核：tanh(γ*u'*v+ coef 0) 
 
 -d degree: 设置多项式核中degree的值，默认为3
--gγ: 设置核函数中γ的值，默认为1/k，k为特征（或者说是属性）数；
+-g γ: 设置核函数中γ的值，默认为1/k，k为特征（或者说是属性）数；
 -r coef 0:设置核函数中的coef 0，默认值为0；
 -c cost：设置C-SVC、ε-SVR、n - SVR中从惩罚系数C，默认值为1；
 -n v ：设置v-SVC、one-class-SVM 与n - SVR 中参数n ，默认值0.5；
