@@ -24,3 +24,19 @@ $./svm-predict test.1.scale train.1.scale.model test.1.predict
 + 对test.1.scale数据使用训练的参数train.1.scale.model进行预测，预测结果保存成test.1.predict
 
 
+# cross-validation(grid.py)
+
+我们在[README](https://github.com/lowkeyway/lowkeyway/blob/main/00_libSvm/README.md)讲过train的-v参数，但是在使用过程中，还有另外一个文件可以帮我们找到最优参数 C 和 <img src="https://latex.codecogs.com/svg.image?\gamma" title="\gamma" />，这就是grid.py的作用
+
+```
+$python grid.py train.2.scale
+¢ ¢ ¢
+2.0 0.5 85.1662
+! Cross Validation Accuracy = 85.1662%
+(Best C=2.0, °=0.5 with five fold cross-validation
+rate=85.1662%)
+```
+
+它的大概意思很容易理解：
++ 对train.2.scale数据进行cross-validation,这样，我们在返回值中就可以看到最优的C 和 <img src="https://latex.codecogs.com/svg.image?\gamma" title="\gamma" />
+
