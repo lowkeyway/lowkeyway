@@ -9,9 +9,10 @@ import numpy as np
 log_path = "./raw"
 normal_log = "Normal"
 fd_log = "FD"
-heart_log = "touch_heart"
-heart_scale_log = "touch_heart_scale"
-heart_range_log = "touch_heart_range"
+out_path = "./out/"
+heart_log = out_path  + "touch_heart"
+heart_scale_log = out_path + "touch_heart_scale"
+heart_range_log = out_path + "touch_heart_range"
 FD_LINE = 10
 SCALE_MIN = -1
 SCALE_MAX = 1
