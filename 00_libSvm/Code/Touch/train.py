@@ -7,8 +7,9 @@ import os
 from python.svmutil import *
 from python.grid import *
 
+train_path = "./raw/"
 out_path = "./out/"
-touch_log_scale = out_path + "touch_heart_scale"
+touch_log_scale = train_path + "touch_heart_scale"
 touch_log_model = out_path + "touch_heart_scale.model"
 
 def main_func(argv):

@@ -6,13 +6,12 @@ from pathlib import Path
 import re
 import numpy as np
 
-log_path = "./raw"
+train_path = "./raw/"
+predict_path = "./test/"
 normal_log = "Normal"
 fd_log = "FD"
-out_path = "./out/"
-heart_log = out_path  + "touch_heart"
-heart_scale_log = out_path + "touch_heart_scale"
-heart_range_log = out_path + "touch_heart_range"
+heart_log = "touch_heart"
+heart_scale_log = "touch_heart_scale"
 FD_LINE = 10
 SCALE_MIN = -1
 SCALE_MAX = 1
@@ -118,8 +117,7 @@ class raw2heart:
 
     def scale_heart(self, scale_path = None, range_path = None):
         if scale_path is None:
-            print("scale_path is None\n")
-            return
+            scale_path = heart_log + "_scale"
 
         if range_path is None:
             range_path = scale_path + "_range"
@@ -157,7 +155,7 @@ class raw2heart:
             scale_data.append(scale_line_data)
         print("scale_data: \n", scale_data)
 
-        self.save_heart_scale(heart_scale_log, self.label_list, scale_data)
+        self.save_heart_scale(scale_path, self.label_list, scale_data)
 
     def save_range(self, file_path):
         with open(file_path, mode='w', encoding='utf-8') as file_obj:
@@ -175,11 +173,18 @@ class raw2heart:
                 file_obj.write("\n")
 
 def main_func(argv):
+    args = len(argv)
+    if args == 1:
+        log_path = train_path
+    if args == 2:
+        log_path = predict_path
+
+    print("log_path = ", log_path)
     r2h = raw2heart()
     r2h.load(log_path)
     # r2h.show_heart()
-    r2h.save_heart(heart_log)
-    r2h.scale_heart(heart_scale_log)
+    r2h.save_heart(log_path + heart_log)
+    r2h.scale_heart(log_path + heart_scale_log)
 
 if __name__ == '__main__':
     main_func(sys.argv)
