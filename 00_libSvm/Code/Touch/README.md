@@ -24,3 +24,6 @@
 windows 下的makefile文件，可以用来指导编译,从标准的libsvm中修改过来，只编译predict.exe
 + all: 编译出predict.exe
 + clean: 删除根目录下的obj文件以及，windows 下的 exp 和 lib 和 predict.exe 文件
+
+### svm-predict.c/svm.h
+改编自libsvm，把svm-predict相关的函数从svm.cpp中提取出来。这样可以只编译svm-predict.c即可了，方便以后的移植。
