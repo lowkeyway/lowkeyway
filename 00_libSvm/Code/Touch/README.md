@@ -17,6 +17,15 @@
 + touch_heart_scale.out： 选参的过程文件
 + touch_heart_scale.model： train过的模型
 
+### 命令
+
+只要依次执行这两个脚本就可以了，不用带参数。
+```
+python raw2heart.py
+python train.py
+
+```
+
 ## Predict
 
 ### Makefile.win
