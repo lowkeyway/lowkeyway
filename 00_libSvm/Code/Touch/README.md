@@ -23,7 +23,6 @@
 ```
 python raw2heart.py
 python train.py
-
 ```
 
 ## Predict
@@ -36,3 +35,19 @@ windows 下的makefile文件，可以用来指导编译,从标准的libsvm中修
 
 ### svm-predict.c/svm.h
 改编自libsvm，把svm-predict相关的函数从svm.cpp中提取出来。这样可以只编译svm-predict.c即可了，方便以后的移植。
+
+
+### 命令
+
+跟我们前面在介绍lisbsvm时候的编译时一样的。
+```
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+nmake -f Makefile.win clean all
+```
+
+这样就可以在windows目录下看到predict.exe文件
+
+接着就可以用这个exe文件做预测了，命令如下：
+```
+svm-predict.exe touch_heart_scale touch_heart_scale.model louis.out
+```
