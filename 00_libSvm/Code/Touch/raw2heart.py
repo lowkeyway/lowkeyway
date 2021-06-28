@@ -83,7 +83,7 @@ class raw2heart:
 
                     if fd_log in file_name:
                         label = 1
-                    print("label = ", label)
+                    # print("label = ", label)
 
                     text = entry.read_text()
                     data = re.findall(r'BEGIN_UUT.*?Dmax = (.*?)\nSmax = (.*?)\n(.*?)Min:.*?Max:.*?Average:.*?END_UUT',
@@ -135,8 +135,8 @@ class raw2heart:
             self.feature_max.append(np.max(original_data[:,index]))
             self.feature_min.append(np.min(original_data[:,index]))
 
-        print("feature_max: \n", self.feature_max)
-        print("feature_min: \n", self.feature_min)
+        # print("feature_max: \n", self.feature_max)
+        # print("feature_min: \n", self.feature_min)
 
         self.save_range(range_path)
 
@@ -153,7 +153,7 @@ class raw2heart:
                             (self.feature_max[index] - self.feature_min[index])
                 scale_line_data.append(value)
             scale_data.append(scale_line_data)
-        print("scale_data: \n", scale_data)
+        # print("scale_data: \n", scale_data)
 
         self.save_heart_scale(scale_path, self.label_list, scale_data)
 
@@ -177,7 +177,7 @@ def main_func(argv):
     if args == 1:
         log_path = train_path
     if args == 2:
-        log_path = predict_path
+        log_path =  argv[1] + "/"
 
     print("log_path = ", log_path)
     r2h = raw2heart()
