@@ -109,15 +109,27 @@ class model:
 
             svm_model_h += "\n\t},\n};\n"
 
-            svm_model_h += "struct svm_node SV[%d][%d] = {" % (len(self.sv_data), len(self.sv_data[0]) + 1)
+            # svm_model_h += "struct svm_node SV[%d][%d] = {" % (len(self.sv_data), len(self.sv_data[0]) + 1)
+            # for i, enum, in enumerate(self.sv_data):
+            #     svm_model_h += "\n\t{"
+            #     for j, data in enumerate(enum):
+            #         if 0 == j %10:
+            #             svm_model_h += "\n\t\t"
+            #         svm_model_h += "{%d, %s}, " %(j+1, data)
+            #
+            #     svm_model_h += "{-1, -1}"
+            #     svm_model_h += "\n\t},\n"
+            #     # if 0 == i % 10:
+            #     #     svm_model_h += "\n\t"
+            # svm_model_h += "\n};\n"
+
+            svm_model_h += "double SV[%d][%d] = {" % (len(self.sv_data), len(self.sv_data[0]))
             for i, enum, in enumerate(self.sv_data):
                 svm_model_h += "\n\t{"
                 for j, data in enumerate(enum):
-                    if 0 == j %10:
+                    if 0 == j % 8:
                         svm_model_h += "\n\t\t"
-                    svm_model_h += "{%d, %s}, " %(j+1, data)
-
-                svm_model_h += "{-1, -1}"
+                    svm_model_h += "%8s, " %(data)
                 svm_model_h += "\n\t},\n"
                 # if 0 == i % 10:
                 #     svm_model_h += "\n\t"
